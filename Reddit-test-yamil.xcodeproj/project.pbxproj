@@ -16,6 +16,8 @@
 		8DF4D7B523998ACA00441842 /* PostsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF4D7B423998ACA00441842 /* PostsDataSource.swift */; };
 		8DF4D7BA2399905200441842 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF4D7B82399905200441842 /* PostCell.swift */; };
 		8DF4D7BB2399905200441842 /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8DF4D7B92399905200441842 /* PostCell.xib */; };
+		8DF4D7BD23999CC200441842 /* CustomSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF4D7BC23999CC200441842 /* CustomSplitViewController.swift */; };
+		8DF4D7C023999D9E00441842 /* HTTPConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF4D7BF23999D9E00441842 /* HTTPConnector.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		8DF4D7B423998ACA00441842 /* PostsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsDataSource.swift; sourceTree = "<group>"; };
 		8DF4D7B82399905200441842 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		8DF4D7B92399905200441842 /* PostCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
+		8DF4D7BC23999CC200441842 /* CustomSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSplitViewController.swift; sourceTree = "<group>"; };
+		8DF4D7BF23999D9E00441842 /* HTTPConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPConnector.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,12 +67,14 @@
 			isa = PBXGroup;
 			children = (
 				8DF4D7AD2399858900441842 /* Detail */,
+				8DF4D7BE23999D7200441842 /* Network */,
 				8DF4D7AC2399857500441842 /* Table */,
 				8DC075D0239982EB00F3E0CA /* AppDelegate.swift */,
 				8DC075D4239982EB00F3E0CA /* Main.storyboard */,
 				8DC075D7239982EB00F3E0CA /* Assets.xcassets */,
 				8DC075D9239982EB00F3E0CA /* LaunchScreen.storyboard */,
 				8DC075DC239982EB00F3E0CA /* Info.plist */,
+				8DF4D7BC23999CC200441842 /* CustomSplitViewController.swift */,
 			);
 			path = "Reddit-test-yamil";
 			sourceTree = "<group>";
@@ -90,6 +96,14 @@
 				8DF4D7B0239985C500441842 /* PostDetailViewController.swift */,
 			);
 			path = Detail;
+			sourceTree = "<group>";
+		};
+		8DF4D7BE23999D7200441842 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				8DF4D7BF23999D9E00441842 /* HTTPConnector.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,7 +182,9 @@
 				8DC075D1239982EB00F3E0CA /* AppDelegate.swift in Sources */,
 				8DF4D7B1239985C500441842 /* PostDetailViewController.swift in Sources */,
 				8DF4D7AF239985AB00441842 /* PostsTableViewController.swift in Sources */,
+				8DF4D7BD23999CC200441842 /* CustomSplitViewController.swift in Sources */,
 				8DF4D7BA2399905200441842 /* PostCell.swift in Sources */,
+				8DF4D7C023999D9E00441842 /* HTTPConnector.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

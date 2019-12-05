@@ -90,10 +90,10 @@
             </objects>
             <point key="canvasLocation" x="152" y="1075"/>
         </scene>
-        <!--Split View Controller-->
+        <!--Custom Split View Controller-->
         <scene sceneID="F6L-3Y-oeF">
             <objects>
-                <splitViewController id="Zhf-cW-CDu" sceneMemberID="viewController">
+                <splitViewController id="Zhf-cW-CDu" customClass="CustomSplitViewController" customModule="Reddit_test_yamil" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
                         <segue destination="jMB-Wd-rpd" kind="relationship" relationship="masterViewController" id="FMl-dT-Szt"/>
                         <segue destination="JmY-wn-wbc" kind="relationship" relationship="detailViewController" id="3wB-F3-IaZ"/>
@@ -105,6 +105,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="qYB-HO-gjC"/>
+        <segue reference="3wB-F3-IaZ"/>
     </inferredMetricsTieBreakers>
 </document>
