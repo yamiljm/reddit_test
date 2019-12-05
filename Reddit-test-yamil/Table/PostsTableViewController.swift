@@ -12,14 +12,42 @@ class PostsTableViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
-    let delegate = PostsTableViewDelegate()
     let dataSource = PostsDataSource()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.delegate = delegate
-        tableView.dataSource = dataSource
+        initializeTable()
     }
 
+    private func initializeTable() {
+        tableView.delegate = self
+        tableView.dataSource = dataSource
+        tableView.register(UINib(nibName: "PostCell", bundle: nil), forCellReuseIdentifier: "postCell")
+    }
+
+
+    // MARK: - Navigation
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+        if segue.identifier == "postDetail" {
+            guard let postDetailViewController = segue.destination as? PostDetailViewController else {
+                return
+            }
+
+            if let selectedRow = tableView.indexPathForSelectedRow?.row  {
+                print("Selected row \(selectedRow)")
+                postDetailViewController.detail = dataSource.items[selectedRow]
+            }
+        }
+    }
+
+}
+
+extension PostsTableViewController: UITableViewDelegate {
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "postDetail", sender: indexPath.row)
+    }
 }

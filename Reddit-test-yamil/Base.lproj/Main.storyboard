@@ -11,17 +11,36 @@
         <!--Post Detail-->
         <scene sceneID="v23-7d-jYP">
             <objects>
-                <viewController id="JmY-wn-wbc" userLabel="Post Detail" sceneMemberID="viewController">
+                <viewController id="JmY-wn-wbc" userLabel="Post Detail" customClass="PostDetailViewController" customModule="Reddit_test_yamil" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fP4-j5-eiI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="S20-qv-f2K" userLabel="Post detail">
+                                <rect key="frame" x="87" y="273" width="240" height="128"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="S20-qv-f2K" firstAttribute="leading" secondItem="xGo-vl-fdK" secondAttribute="leading" constant="87" id="CdO-c0-DOe"/>
+                            <constraint firstItem="xGo-vl-fdK" firstAttribute="bottom" secondItem="S20-qv-f2K" secondAttribute="bottom" constant="461" id="RaE-yz-1oM"/>
+                            <constraint firstItem="xGo-vl-fdK" firstAttribute="trailing" secondItem="S20-qv-f2K" secondAttribute="trailing" constant="87" id="g9v-21-nOu"/>
+                            <constraint firstItem="S20-qv-f2K" firstAttribute="top" secondItem="xGo-vl-fdK" secondAttribute="top" constant="185" id="hMH-uz-9Ge"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="xGo-vl-fdK"/>
                     </view>
+                    <connections>
+                        <outlet property="detailTextView" destination="S20-qv-f2K" id="EL7-zr-1Sf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fDQ-Y8-EOB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="151" y="333"/>
+            <point key="canvasLocation" x="448" y="317"/>
         </scene>
         <!--Posts Table-->
         <scene sceneID="X5W-jr-b9W">
@@ -48,6 +67,7 @@
                     <navigationItem key="navigationItem" id="sz0-FZ-v61"/>
                     <connections>
                         <outlet property="tableView" destination="bqh-Vc-zR9" id="2Zz-Ml-FId"/>
+                        <segue destination="JmY-wn-wbc" kind="showDetail" identifier="postDetail" id="qYB-HO-gjC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tTO-pU-3q8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -84,4 +104,7 @@
             <point key="canvasLocation" x="-1096" y="333"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="qYB-HO-gjC"/>
+    </inferredMetricsTieBreakers>
 </document>
