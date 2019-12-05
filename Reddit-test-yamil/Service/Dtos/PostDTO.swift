@@ -13,8 +13,11 @@ struct PostDTO: Decodable  {
     struct Data: Decodable {
         let id: String
         let title: String?
-        let thumbnailURL: String?
+        let thumbnail: String?
         let name: String?
+        let author: String?
+        let comments: Int?
+        let created: TimeInterval?
     }
 
     let data: PostDTO.Data

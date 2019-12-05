@@ -25,6 +25,9 @@
 		8DF4D7CD2399A2DB00441842 /* RedditService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF4D7CC2399A2DB00441842 /* RedditService.swift */; };
 		8DF4D7CF2399A32300441842 /* RedditServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF4D7CE2399A32300441842 /* RedditServiceImpl.swift */; };
 		8DF4D7D12399A40200441842 /* HTTPConnectorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF4D7D02399A40200441842 /* HTTPConnectorImpl.swift */; };
+		8DF4D7D32399BE7400441842 /* PostTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF4D7D22399BE7400441842 /* PostTransformer.swift */; };
+		8DF4D7D62399C76D00441842 /* Date+RedditTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF4D7D52399C76D00441842 /* Date+RedditTest.swift */; };
+		8DF4D7D82399CA4700441842 /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF4D7D72399CA4700441842 /* ImageProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +51,9 @@
 		8DF4D7CC2399A2DB00441842 /* RedditService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditService.swift; sourceTree = "<group>"; };
 		8DF4D7CE2399A32300441842 /* RedditServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditServiceImpl.swift; sourceTree = "<group>"; };
 		8DF4D7D02399A40200441842 /* HTTPConnectorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPConnectorImpl.swift; sourceTree = "<group>"; };
+		8DF4D7D22399BE7400441842 /* PostTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTransformer.swift; sourceTree = "<group>"; };
+		8DF4D7D52399C76D00441842 /* Date+RedditTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+RedditTest.swift"; sourceTree = "<group>"; };
+		8DF4D7D72399CA4700441842 /* ImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				8DF4D7AD2399858900441842 /* Detail */,
+				8DF4D7D42399C74800441842 /* Extensions */,
 				8DF4D7C72399A1B200441842 /* Models */,
 				8DF4D7BE23999D7200441842 /* Network */,
 				8DF4D7AC2399857500441842 /* Table */,
@@ -91,6 +98,7 @@
 				8DC075D9239982EB00F3E0CA /* LaunchScreen.storyboard */,
 				8DC075DC239982EB00F3E0CA /* Info.plist */,
 				8DF4D7BC23999CC200441842 /* CustomSplitViewController.swift */,
+				8DF4D7D72399CA4700441842 /* ImageProvider.swift */,
 			);
 			path = "Reddit-test-yamil";
 			sourceTree = "<group>";
@@ -129,6 +137,7 @@
 				8DF4D7C223999E6B00441842 /* Dtos */,
 				8DF4D7CC2399A2DB00441842 /* RedditService.swift */,
 				8DF4D7CE2399A32300441842 /* RedditServiceImpl.swift */,
+				8DF4D7D22399BE7400441842 /* PostTransformer.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -149,6 +158,14 @@
 				8DF4D7CA2399A21D00441842 /* Post.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		8DF4D7D42399C74800441842 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8DF4D7D52399C76D00441842 /* Date+RedditTest.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,7 +244,10 @@
 				8DF4D7CB2399A21D00441842 /* Post.swift in Sources */,
 				8DC075D1239982EB00F3E0CA /* AppDelegate.swift in Sources */,
 				8DF4D7CF2399A32300441842 /* RedditServiceImpl.swift in Sources */,
+				8DF4D7D32399BE7400441842 /* PostTransformer.swift in Sources */,
+				8DF4D7D62399C76D00441842 /* Date+RedditTest.swift in Sources */,
 				8DF4D7B1239985C500441842 /* PostDetailViewController.swift in Sources */,
+				8DF4D7D82399CA4700441842 /* ImageProvider.swift in Sources */,
 				8DF4D7AF239985AB00441842 /* PostsTableViewController.swift in Sources */,
 				8DF4D7BD23999CC200441842 /* CustomSplitViewController.swift in Sources */,
 				8DF4D7C62399A10600441842 /* PostsResponseDTO.swift in Sources */,

@@ -19,9 +19,11 @@ class RedditServiceImpl: RedditService {
     }
 
     let httpConnector: HTTPConnector
+    let transformer: PostTransformerType
 
-    init(httpConnector: HTTPConnector = HTTPConnectorImpl()) {
+    init(httpConnector: HTTPConnector = HTTPConnectorImpl(), transformer: PostTransformerType = PostTransformer()) {
         self.httpConnector = httpConnector
+        self.transformer = transformer
     }
 
     func getPostsForTopic(_ topic: String, withParams searchParams: SearchParams? = nil, completion: @escaping (Result<PaginatedPosts?, Error>) -> Void) {
@@ -45,7 +47,7 @@ class RedditServiceImpl: RedditService {
                     completion(Result.failure(ServiceError.decodeError))
                     return
                 }
-                completion(Result.success(self.transformResponse(dto: decodedResponse)))
+                completion(Result.success(self.transformer.transformPostDTO(decodedResponse)))
 
             case .failure(let error):
                 print(error.localizedDescription)
@@ -104,11 +106,11 @@ class RedditServiceImpl: RedditService {
         return queryItems
     }
 
-    private func transformResponse(dto: PostsResponseDTO) -> PaginatedPosts {
-        let childrens = dto.data?.children?.map {
-            return Post(title: $0.data.title, thumbnailURL: $0.data.thumbnailURL, name: $0.data.name)
-        }
-
-        return PaginatedPosts(after: dto.data?.after, before: dto.data?.before, childrens: childrens)
-    }
+//    private func transformResponse(dto: PostsResponseDTO) -> PaginatedPosts {
+//        let childrens = dto.data?.children?.map {
+//            return Post(title: $0.data.title, thumbnailURL: $0.data.thumbnailURL, name: $0.data.name)
+//        }
+//
+//        return PaginatedPosts(after: dto.data?.after, before: dto.data?.before, childrens: childrens)
+//    }
 }

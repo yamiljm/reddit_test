@@ -23,16 +23,24 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jek-UB-68m">
+                        <rect key="frame" x="16" y="10" width="107" height="79"/>
+                    </imageView>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="jek-UB-68m" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="A6w-gz-kHp"/>
                     <constraint firstItem="ob4-ZU-bs9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="143" id="DMM-wL-lFO"/>
                     <constraint firstItem="ob4-ZU-bs9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="Dm4-vu-MwA"/>
+                    <constraint firstItem="ob4-ZU-bs9" firstAttribute="leading" secondItem="jek-UB-68m" secondAttribute="trailing" constant="20" id="Ufm-7U-h0J"/>
                     <constraint firstAttribute="trailing" secondItem="ob4-ZU-bs9" secondAttribute="trailing" constant="31" id="XmQ-Cv-dLK"/>
+                    <constraint firstItem="jek-UB-68m" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="YjW-s2-fHd"/>
                     <constraint firstAttribute="bottom" secondItem="ob4-ZU-bs9" secondAttribute="bottom" constant="11" id="ZS2-gi-wdM"/>
+                    <constraint firstAttribute="bottom" secondItem="jek-UB-68m" secondAttribute="bottom" constant="11" id="jI9-Rb-Tp7"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="thumbnail" destination="jek-UB-68m" id="OMv-T8-Fqm"/>
                 <outlet property="title" destination="ob4-ZU-bs9" id="vfm-WC-Lkr"/>
             </connections>
             <point key="canvasLocation" x="140.57971014492756" y="172.09821428571428"/>

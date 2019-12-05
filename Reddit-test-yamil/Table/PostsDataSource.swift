@@ -12,13 +12,15 @@ import UIKit
 class PostsDataSource: NSObject {
 
     private var items: [Post]
+    private let imageProvider: ImageProvider
 
     var count: Int {
         return items.count
     }
 
-    override init() {
-        items = [Post]()
+    init(imageProvider: ImageProvider = ImageProvider()) {
+        self.items = [Post]()
+        self.imageProvider = imageProvider
         super.init()
     }
 
@@ -48,7 +50,8 @@ extension PostsDataSource: UITableViewDataSource {
             return UITableViewCell()
         }
 
-        cell.title.text = items[indexPath.row].title
+        let post = items[indexPath.row]
+        cell.updateViewFromPost(post, forRow: indexPath.row, with: imageProvider)
         return cell
     }
 
