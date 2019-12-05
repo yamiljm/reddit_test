@@ -77,7 +77,7 @@ class RedditServiceImpl: RedditService {
         var component = URLComponents()
         component.scheme = "https"
         component.host = "reddit.com"
-        component.path = "/r\(topic)/\(Const.partialTopPath)"
+        component.path = "/r/\(topic)/\(Const.partialTopPath)"
         return component
     }
 
@@ -89,9 +89,9 @@ class RedditServiceImpl: RedditService {
             queryItems.append(contentsOf: [URLQueryItem(name: Const.afterParam, value: afterParam)])
         }
 
-        if let beforeParam = params.before {
-            queryItems.append(URLQueryItem(name: Const.beforeParam, value: beforeParam))
-        }
+//        if let beforeParam = params.before {
+//            queryItems.append(URLQueryItem(name: Const.beforeParam, value: beforeParam))
+//        }
 
         if let limitParam = params.limit {
             queryItems.append(URLQueryItem(name: Const.limitParam, value: limitParam.description))

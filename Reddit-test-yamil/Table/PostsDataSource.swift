@@ -11,20 +11,26 @@ import UIKit
 
 class PostsDataSource: NSObject {
 
-    var items: [String]
+    private var items: [Post]
+
+    var count: Int {
+        return items.count
+    }
 
     override init() {
-
-        items = [String]()
+        items = [Post]()
         super.init()
+    }
 
-        //TODO: remove. For test cell creation
-        (1...10).forEach {[weak self] (i) in
-            guard let self = self else {
-                return
-            }
-            self.items.append("Hello \(i)")
+    func append(_ newPosts: [Post]?) {
+        guard let posts = newPosts else {
+            return
         }
+        items.append(contentsOf: posts)
+    }
+
+    func itemAt(_ position: Int) -> Post {
+        return items[position]
     }
 
 }
@@ -42,7 +48,7 @@ extension PostsDataSource: UITableViewDataSource {
             return UITableViewCell()
         }
 
-        cell.title.text = items[indexPath.row]
+        cell.title.text = items[indexPath.row].title
         return cell
     }
 

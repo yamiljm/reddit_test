@@ -23,7 +23,7 @@ enum ServiceError: Error {
 
 struct SearchParams {
     let after: String?
-    let before: String?
+//    let before: String?
     let count: Int?
     let limit: Int?
 }
