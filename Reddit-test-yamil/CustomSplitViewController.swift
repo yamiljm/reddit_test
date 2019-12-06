@@ -23,7 +23,7 @@ class CustomSplitViewController: UISplitViewController, UISplitViewControllerDel
 
         }
 
-        if secondaryAsNavController.detail == nil {
+        if secondaryAsNavController.post == nil {
             // Return true to indicate that we have handled the collapse by doing nothing; the secondary controller will be discarded.
             return true
         }

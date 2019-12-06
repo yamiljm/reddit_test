@@ -44,6 +44,9 @@ struct PostTransformer: PostTransformerType {
 
 private extension URL {
     func isValid() -> Bool {
-        return !(scheme?.isEmpty ?? false && host?.isEmpty ?? false)
+        guard let s = scheme, !s.isEmpty, let h = host, !h.isEmpty else {
+            return false
+        }
+        return true
     }
 }

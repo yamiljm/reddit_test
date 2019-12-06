@@ -26,7 +26,7 @@ class PostCell: UITableViewCell {
         viewedBullet.clipsToBounds = true
     }
 
-    func updateViewFromPost(_ post: Post, forRow row: Int, with imageProvider: ImageProvider) {
+    func updateViewFromPost(_ post: Post, forRow row: Int, with imageProvider: ImageProvider?) {
 
         title.text = post.title
         thumbnail?.image = UIImage(named: "placeholder")
@@ -52,8 +52,14 @@ class PostCell: UITableViewCell {
         viewedBullet.backgroundColor = selected || viewed ? .clear : .blue
     }
 
-    private func loadImageFromURL(_ url: URL, forRow row: Int, with imageProvider: ImageProvider) {
-        imageProvider.loadImage(from: url, forRow: row) { [weak self] (loadedImage: UIImage?, row: Int) in
+    private func loadImageFromURL(_ url: URL, forRow row: Int, with imageProvider: ImageProvider?) {
+
+        guard let strongImageProvider = imageProvider else {
+            print("Error: not image provider found")
+            return
+        }
+
+        strongImageProvider.loadImage(from: url, forRow: row) { [weak self] (loadedImage: UIImage?, row: Int?) in
 
             guard let self = self else {
                 return

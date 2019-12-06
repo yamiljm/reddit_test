@@ -16,9 +16,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="S20-qv-f2K" userLabel="Post detail">
-                                <rect key="frame" x="87" y="273" width="240" height="128"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l71-kh-iwF">
+                                <rect key="frame" x="142" y="148" width="130" height="130"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="130" id="4Sl-Re-QCr"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EuQ-j0-Nwj">
+                                <rect key="frame" x="20" y="107" width="52.5" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="tzW-M4-vyV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="745" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="S20-qv-f2K" userLabel="Post detail">
+                                <rect key="frame" x="20" y="299" width="374" height="128"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="Ego-a6-Xec"/>
+                                </constraints>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -27,31 +45,39 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="S20-qv-f2K" firstAttribute="leading" secondItem="xGo-vl-fdK" secondAttribute="leading" constant="87" id="CdO-c0-DOe"/>
-                            <constraint firstItem="xGo-vl-fdK" firstAttribute="bottom" secondItem="S20-qv-f2K" secondAttribute="bottom" constant="461" id="RaE-yz-1oM"/>
-                            <constraint firstItem="xGo-vl-fdK" firstAttribute="trailing" secondItem="S20-qv-f2K" secondAttribute="trailing" constant="87" id="g9v-21-nOu"/>
-                            <constraint firstItem="S20-qv-f2K" firstAttribute="top" secondItem="xGo-vl-fdK" secondAttribute="top" constant="185" id="hMH-uz-9Ge"/>
+                            <constraint firstItem="xGo-vl-fdK" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="EuQ-j0-Nwj" secondAttribute="trailing" constant="12" id="2f6-DN-42l"/>
+                            <constraint firstItem="xGo-vl-fdK" firstAttribute="trailing" secondItem="l71-kh-iwF" secondAttribute="trailing" constant="142" id="6cY-oe-KEc"/>
+                            <constraint firstItem="EuQ-j0-Nwj" firstAttribute="top" secondItem="xGo-vl-fdK" secondAttribute="top" constant="19" id="CHC-6V-T6y"/>
+                            <constraint firstItem="l71-kh-iwF" firstAttribute="leading" secondItem="xGo-vl-fdK" secondAttribute="leading" constant="142" id="D6O-hE-8UP"/>
+                            <constraint firstItem="l71-kh-iwF" firstAttribute="top" secondItem="EuQ-j0-Nwj" secondAttribute="bottom" constant="16" id="DKN-jy-5dF"/>
+                            <constraint firstItem="xGo-vl-fdK" firstAttribute="trailing" secondItem="S20-qv-f2K" secondAttribute="trailing" constant="20" id="FP8-41-166"/>
+                            <constraint firstItem="EuQ-j0-Nwj" firstAttribute="leading" secondItem="xGo-vl-fdK" secondAttribute="leading" constant="20" id="Olq-1I-l8A"/>
+                            <constraint firstItem="xGo-vl-fdK" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="S20-qv-f2K" secondAttribute="bottom" constant="15" id="Q0w-Pl-43e"/>
+                            <constraint firstItem="S20-qv-f2K" firstAttribute="leading" secondItem="xGo-vl-fdK" secondAttribute="leading" constant="20" id="rFV-0h-bGj"/>
+                            <constraint firstItem="S20-qv-f2K" firstAttribute="top" secondItem="l71-kh-iwF" secondAttribute="bottom" constant="21" id="xGX-ZZ-YkU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xGo-vl-fdK"/>
                     </view>
                     <connections>
+                        <outlet property="author" destination="EuQ-j0-Nwj" id="ahh-uf-dyW"/>
                         <outlet property="detailTextView" destination="S20-qv-f2K" id="EL7-zr-1Sf"/>
+                        <outlet property="postImage" destination="l71-kh-iwF" id="XaZ-Hq-iwq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fDQ-Y8-EOB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="448" y="317"/>
+            <point key="canvasLocation" x="447.82608695652175" y="316.07142857142856"/>
         </scene>
         <!--Posts Table-->
         <scene sceneID="X5W-jr-b9W">
             <objects>
                 <viewController id="IdE-R9-V8Q" userLabel="Posts Table" customClass="PostsTableViewController" customModule="Reddit_test_yamil" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ohp-h2-UyA">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bqh-Vc-zR9">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                         </subviews>
@@ -74,13 +100,17 @@
             </objects>
             <point key="canvasLocation" x="1372" y="1075"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Reddit posts-->
         <scene sceneID="61f-WE-xfS">
             <objects>
-                <navigationController id="jMB-Wd-rpd" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4k5-ke-5wU">
+                <navigationController title="Reddit posts" id="jMB-Wd-rpd" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="4k5-ke-5wU">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="IdE-R9-V8Q" kind="relationship" relationship="rootViewController" id="cmE-Dm-O63"/>
@@ -90,10 +120,10 @@
             </objects>
             <point key="canvasLocation" x="152" y="1075"/>
         </scene>
-        <!--Custom Split View Controller-->
+        <!--Reddit Posts-->
         <scene sceneID="F6L-3Y-oeF">
             <objects>
-                <splitViewController id="Zhf-cW-CDu" customClass="CustomSplitViewController" customModule="Reddit_test_yamil" customModuleProvider="target" sceneMemberID="viewController">
+                <splitViewController title="Reddit Posts" id="Zhf-cW-CDu" customClass="CustomSplitViewController" customModule="Reddit_test_yamil" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
                         <segue destination="jMB-Wd-rpd" kind="relationship" relationship="masterViewController" id="FMl-dT-Szt"/>
                         <segue destination="JmY-wn-wbc" kind="relationship" relationship="detailViewController" id="3wB-F3-IaZ"/>

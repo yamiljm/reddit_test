@@ -12,13 +12,13 @@ import UIKit
 class PostsDataSource: NSObject {
 
     private var items: [Post]
-    private let imageProvider: ImageProvider
+    private weak var imageProvider: ImageProvider?
 
     var count: Int {
         return items.count
     }
 
-    init(imageProvider: ImageProvider = ImageProvider()) {
+    init(imageProvider: ImageProvider) {
         self.items = [Post]()
         self.imageProvider = imageProvider
         super.init()

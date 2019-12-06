@@ -28,9 +28,11 @@ class PostsTableViewController: UIViewController {
     private var state: State
     private let service: RedditService
     private var newestPostId: String?
+    private let imageProvider: ImageProvider
 
     required init?(coder: NSCoder) {
-        self.dataSource = PostsDataSource()
+        self.imageProvider = ImageProvider()
+        self.dataSource = PostsDataSource(imageProvider: imageProvider)
         self.state = .empty
         self.service = RedditServiceImpl()
         super.init(coder: coder)
@@ -38,9 +40,7 @@ class PostsTableViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         initializeTable()
-
         refreshTableView()
     }
 
@@ -120,7 +120,8 @@ class PostsTableViewController: UIViewController {
 
             if let selectedRow = tableView.indexPathForSelectedRow?.row  {
                 print("Selected row \(selectedRow)")
-                postDetailViewController.detail = dataSource.itemAt(selectedRow).title
+                postDetailViewController.post = dataSource.itemAt(selectedRow)
+                postDetailViewController.imageProvider = imageProvider
             }
         }
     }
