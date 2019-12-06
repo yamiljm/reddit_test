@@ -18,13 +18,14 @@ struct PostTransformer: PostTransformerType {
 
     func transformPostDTO(_ dto: PostsResponseDTO) -> PaginatedPosts {
 
+
         let childrens = dto.data?.children?.map( { child -> Post in
             let data = child.data
             return Post(title: data.title,
                         thumbnailURL: createURL(data.thumbnail),
                         name: data.name,
                         created: data.created,
-                        numberOfComments: data.comments,
+                        numberOfComments: data.numComments,
                         author: data.author)
         })
 

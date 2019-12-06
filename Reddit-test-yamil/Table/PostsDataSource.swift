@@ -35,6 +35,14 @@ class PostsDataSource: NSObject {
         return items[position]
     }
 
+    func setItemViewed(_ position: Int) {
+        items[position].setViewed()
+    }
+
+    func removeAll() {
+        items.removeAll()
+    }
+
 }
 
 extension PostsDataSource: UITableViewDataSource {

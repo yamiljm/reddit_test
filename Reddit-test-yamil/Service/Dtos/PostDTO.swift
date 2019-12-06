@@ -16,7 +16,7 @@ struct PostDTO: Decodable  {
         let thumbnail: String?
         let name: String?
         let author: String?
-        let comments: Int?
+        let numComments: Int?
         let created: TimeInterval?
     }
 

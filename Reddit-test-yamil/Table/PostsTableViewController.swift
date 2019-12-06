@@ -48,8 +48,18 @@ class PostsTableViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = dataSource
         tableView.register(UINib(nibName: "PostCell", bundle: nil), forCellReuseIdentifier: "postCell")
+        tableView.separatorColor = UIColor.lightGray
+        tableView.refreshControl = UIRefreshControl()
+        tableView?.refreshControl?.addTarget(self, action: #selector(PostsTableViewController.refreshTableView), for: .valueChanged)
     }
 
+
+    @objc
+    func refreshTableView() {
+        dataSource.removeAll()
+        tableView.reloadData()
+        refreshTableView(after: nil, count: 0)
+    }
 
     func refreshTableView(after: String? = nil, count: Int = 0){
 
@@ -95,6 +105,8 @@ class PostsTableViewController: UIViewController {
 
         }
 
+         self.tableView.refreshControl?.endRefreshing()
+
     }
 
     // MARK: - Navigation
@@ -118,11 +130,42 @@ class PostsTableViewController: UIViewController {
 extension PostsTableViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        let posibleCell = tableView.cellForRow(at: indexPath) as? PostCell
+
+        guard let cell = posibleCell else {
+            print("Error dequeing cell")
+            return
+        }
+
+        cell.viewed = true
+        dataSource.setItemViewed(indexPath.row)
+
         performSegue(withIdentifier: "postDetail", sender: indexPath.row)
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(120)
+        return CGFloat(136)
     }
+
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+
+        guard state != .loading else {
+            return
+        }
+
+        let lastElement = dataSource.count - 1
+
+        if indexPath.row == lastElement {
+            refreshTableView(after: newestPostId, count: 0)
+            let spinner = UIActivityIndicatorView(style: .gray)
+            spinner.startAnimating()
+            spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(44))
+            self.tableView.tableFooterView = spinner
+            self.tableView.tableFooterView?.isHidden = false
+            self.tableView.tableFooterView?.backgroundColor = UIColor.black
+        }
+    }
+
 
 }

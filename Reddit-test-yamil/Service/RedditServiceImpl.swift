@@ -43,7 +43,9 @@ class RedditServiceImpl: RedditService {
 
             switch result {
             case .success(let data):
-                guard let decodedResponse: PostsResponseDTO = try? JSONDecoder().decode(PostsResponseDTO.self, from: data) else {
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                guard let decodedResponse: PostsResponseDTO = try? decoder.decode(PostsResponseDTO.self, from: data) else {
                     completion(Result.failure(ServiceError.decodeError))
                     return
                 }
